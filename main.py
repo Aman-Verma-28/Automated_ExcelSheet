@@ -15,7 +15,6 @@ row=1 # to read the row number
 col=10 # to read upto that column number
 
 for i in range(1,col+1):
-    dataInCell=sh1.cell(i,row).value
-    if dataInCell!=None:
+    if (dataInCell := sh1.cell(i,row).value)!=None:
         print(dataInCell)
     # now you can process this data in whichever manner you want
