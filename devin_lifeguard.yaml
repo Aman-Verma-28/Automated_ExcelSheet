@@ -1,0 +1,26 @@
+rules:
+  - name: file-path-format-in-docs
+    trigger: >-
+      when documenting file paths in README or code examples, especially when
+      showing Windows paths with drive letters (C:/, D:/, etc.)
+    solution: >-
+      provide examples for multiple operating systems:
+
+      - Windows: "C:/Users/YourName/Documents/data.xlsx"
+
+      - macOS/Linux: "/home/username/documents/data.xlsx"
+
+      - Relative path: "./data/myfile.xlsx"
+
+      Also mention using forward slashes (/) or escaped backslashes (\\) on
+      Windows for compatibility.
+  - name: platform-compatibility-documentation
+    trigger: >-
+      when adding documentation or setup instructions that involve file paths,
+      system commands, or platform-specific behavior (like Windows-specific path
+      formats with backslashes or drive letters)
+    solution: >-
+      add explicit notes about platform compatibility issues. For example, if
+      file paths use Windows format (C:/Users/...), add a note that the tool may
+      not work on Linux or macOS, or provide cross-platform alternatives.
+      Include examples for different operating systems when relevant.
