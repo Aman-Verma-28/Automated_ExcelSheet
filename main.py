@@ -76,18 +76,16 @@ def extract_data(file_path, sheet_name=None, row=1, col=10):
             sheet = workbook[sheet_name]
         else:
             sheet = workbook.active
-    except KeyError:
+
+        values = []
+        for i in range(1, col + 1):
+            data_in_cell = sheet.cell(row=row, column=i).value
+            if data_in_cell is not None:
+                values.append(data_in_cell)
+
+        return values
+    finally:
         workbook.close()
-        raise
-
-    values = []
-    for i in range(1, col + 1):
-        data_in_cell = sheet.cell(row=row, column=i).value
-        if data_in_cell is not None:
-            values.append(data_in_cell)
-
-    workbook.close()
-    return values
 
 
 def main():
